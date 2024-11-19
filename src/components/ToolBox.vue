@@ -6,6 +6,7 @@
       :key="item.type"
       draggable="true"
       @dragstart="dragStart(item)"
+      @click="clickOnMobile(item)"
       class="px-4 py-2 rounded-xl border-2 border-dashed my-1 text-sm text-center font-semibold cursor-grab hover:opacity-50 transition-all whitespace-nowrap"
     >
       {{ item.label }}
@@ -14,6 +15,10 @@
 </template>
 
 <script setup>
+import { useStore } from 'vuex';
+
+const store = useStore();
+
 const items = [
   {
     type: 'text',
@@ -29,5 +34,13 @@ const items = [
 
 const dragStart = (item) => {
   event.dataTransfer.setData('item', JSON.stringify(item));
+};
+const clickOnMobile = (item) => {
+  if (window.innerWidth < 768) {
+    store.commit('addFormItem', {
+      ...item,
+      id: new Date().getTime(),
+    });
+  }
 };
 </script>

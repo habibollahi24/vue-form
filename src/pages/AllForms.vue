@@ -12,7 +12,7 @@
       >
         <input
           type="text"
-          class="bg-gray-100 rounded-lg p-2"
+          class="bg-gray-100 rounded-lg p-2 w-full"
           v-model="val"
           placeholder="search ..."
         />
@@ -20,9 +20,9 @@
       <div
         v-for="(form, index) in getAllForm"
         :key="index"
-        class="flex space-x-3 justify-center border-2 max-w-screen-sm mx-auto p-8 rounded-lg my-2"
+        class="flex flex-col gap-y-4 md:flex-row md:space-x-3 justify-center border-2 max-w-screen-sm mx-auto p-2 md:p-8 rounded-lg my-2"
       >
-        <form class="p-4 flex-1">
+        <form class="flex-1">
           <h2 class="text-xl font-semibold mb-4">
             {{ form.formName }}
           </h2>
@@ -125,7 +125,7 @@
         </form>
 
         <pre
-          class="text-[10px] w-[200px] h-[300px] overflow-auto bg-gray-800 text-gray-100 p-2 rounded-lg"
+          class="text-[10px] md:w-[200px] h-[300px] overflow-auto bg-gray-800 text-gray-100 p-2 rounded-lg"
           >{{ getAllForm[index] }}</pre
         >
       </div>
