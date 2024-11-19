@@ -29,6 +29,14 @@ export const store = createStore({
     formItems: [], // آیتم‌های فرم در اینجا ذخیره می‌شوند
   },
   mutations: {
+    // search(state, searchInput) {
+    //   if (searchInput.trim() === '') return state.array;
+    //   const copy = state.array;
+    //   state.array = copy.filter((item) =>
+    //     item.formName.includes(searchInput)
+    //   );
+    // },
+
     swapIndexDown(state, { index1, index2 }) {
       console.log(index1);
       console.log(index2);
@@ -76,6 +84,7 @@ export const store = createStore({
         { formName: state.formName, formItems: state.formItems },
       ];
       state.formItems = [];
+      state.formName = 'Un Title';
     },
   },
   actions: {

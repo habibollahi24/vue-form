@@ -4,13 +4,13 @@
       <h1 class="font-semibold text-xl mr-8">ForMinimaLat🎨r</h1>
       <RouterLink
         class="underline mr-4 underline-offset-8"
-        active-class="text-blue-500"
+        active-class="text-indigo-700"
         to="/"
         >Form Builder</RouterLink
       >
       <RouterLink
         class="underline underline-offset-8"
-        active-class="text-blue-500"
+        active-class="text-indigo-700"
         to="/forms"
         >My Forms</RouterLink
       >

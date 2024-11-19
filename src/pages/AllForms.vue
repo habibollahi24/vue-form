@@ -7,14 +7,16 @@
       Noting form :)
     </div>
     <div v-else class="mt-8">
-      <form
+      <div
         class="max-w-screen-sm mx-auto mb-4 flex items-center space-x-1"
       >
-        <input type="text" class="bg-gray-100 rounded-lg p-2" />
-        <button class="bg-indigo-700 text-white rounded-xl py-2 px-4">
-          search
-        </button>
-      </form>
+        <input
+          type="text"
+          class="bg-gray-100 rounded-lg p-2"
+          v-model="val"
+          placeholder="search ..."
+        />
+      </div>
       <div
         v-for="(form, index) in getAllForm"
         :key="index"
@@ -123,7 +125,7 @@
         </form>
 
         <pre
-          class="text-[10px] w-[200px] h-[400px] overflow-auto bg-gray-800 text-gray-100 p-2 rounded-lg"
+          class="text-[10px] w-[200px] h-[300px] overflow-auto bg-gray-800 text-gray-100 p-2 rounded-lg"
           >{{ getAllForm[index] }}</pre
         >
       </div>
@@ -132,11 +134,20 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import { useStore } from 'vuex';
 
 const store = useStore();
-const getAllForm = computed(() => store.state.array);
+// const getAllForm = computed(() => store.state.array);
+
+const val = ref('');
+
+const getAllForm = computed(() => {
+  const query = val.value.toLowerCase();
+  return store.state.array.filter((form) =>
+    form.formName.toLowerCase().includes(query)
+  );
+});
 </script>
 
 <style></style>
