@@ -3,7 +3,7 @@
     <div
       class="rounded-md p-2 flex md:justify-between space-x-3 my-2"
     >
-      <div class="w-32 md:w-3/4">
+      <div class="w-3/4">
         <!-- نمایش نوع های مختلف ورودی -->
         <div v-if="editableItem.type === 'text'">
           <input
